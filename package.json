@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/rediahmdsCode/Day-24-Mini-Project-Object-in-a-Planet/issues"
   },
-  "homepage": "https://github.com/rediahmdsCode/Day-24-Mini-Project-Object-in-a-Planet#readme"
+  "homepage": "https://github.com/rediahmdsCode/Day-24-Mini-Project-Object-in-a-Planet#readme",
+  "devDependencies": {
+    "jsdoc": "^4.0.0"
+  }
 }
