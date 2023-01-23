@@ -73,9 +73,9 @@ button.addEventListener('click', function () {
 
 /**
  * style function is used to style an element property
- * @param {string} elementIdentifier - Element name, id, or class
- * @param {string} property - Property of an element
- * @param {string} value - Value of the given property
+ * @param {string} elementIdentifier - Element name, id, or class.
+ * @param {string} property - Property of an element.
+ * @param {string} value - Value of the given property.
  */
 function style(elementIdentifier, property, value) {
   document.querySelector(`${elementIdentifier}`).style[`${property}`] = value;
