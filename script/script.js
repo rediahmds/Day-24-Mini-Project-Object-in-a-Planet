@@ -29,6 +29,7 @@ document.body.innerHTML = `
     
     <!-- RESULT BLOCK -->
     <div class="result-block-container">
+    <img id="planet-img" src=""/>
       <div class="result-items" id="result-text">
         <div id="show-input"></div>
         <div id="result-weight"></div>
@@ -56,15 +57,23 @@ const gravity = {
 
 // Action when button is clicked
 button.addEventListener('click', function () {
-  // If mass has
+  // If mass is not empty str and a planet is selected
   if (mass.value !== '' && selectPlanets.value !== 'none') {
-    console.log(typeof selectPlanets.value);
+    // Show image of the chosen planet
+    document.querySelector('img').src = `../assets/${selectPlanets.value}.png`;
+    document.querySelector(
+      'img'
+    ).alt = `Image of planet ${selectPlanets.value}.`;
+
+    // Show the info that is given by user
     document.querySelector('#show-input').innerText = `Weight of a ${
       mass.value
     } kg object in ${selectPlanets.value.toUpperCase()} is`;
-    document.querySelector('#result-weight').innerText = `${parseInt(
+
+    // Show the result
+    document.querySelector('#result-weight').innerText = `${parseFloat(
       mass.value * gravity[selectPlanets.value]
-    )} N`;
+    ).toFixed(2)} N`;
   } else {
     document.querySelector('#result-weight').innerText =
       'Mass and Planet are required. Check your input!';
@@ -81,4 +90,5 @@ function style(elementIdentifier, property, value) {
   document.querySelector(`${elementIdentifier}`).style[`${property}`] = value;
 }
 
+// Center the h1
 style('h1', 'text-align', 'center');
