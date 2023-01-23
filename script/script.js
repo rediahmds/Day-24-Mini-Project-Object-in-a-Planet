@@ -1,5 +1,6 @@
+// Create HTML elements
 document.body.innerHTML = `
-    <h1>Calculate Object Mass in a Planet</h1>
+    <h1>Calculate Object Weight in a Planet</h1>
 
     <!-- INPUT BLOCK -->
     <div class="input-block-container">
@@ -17,6 +18,7 @@ document.body.innerHTML = `
         <option value="saturn">Saturn</option>
         <option value="uranus">Uranus</option>
         <option value="neptune">Neptune</option>
+        <option value="moon">Moon</option>
       </select>
 
       <!-- Button to Calculate -->
@@ -27,8 +29,44 @@ document.body.innerHTML = `
     
     <!-- RESULT BLOCK -->
     <div class="result-block-container">
-      <div class="result-items" id="result-text"></div>
+      <div class="result-items" id="result-text">
+        <div id="show-input"></div>
+        <div id="result-weight"></div>
+      </div>
     </div>
     <!-- END OF RESULT BLOCK -->`;
 
+// Get html elements
+const mass = document.querySelector('#mass');
+const selectPlanets = document.querySelector('#select-planets');
+const button = document.querySelector('button');
 
+// Create literal object containing gravity constant of each planet
+const gravity = {
+  mercury: 3.6,
+  venus: 8.9,
+  earth: 9.8,
+  mars: 3.8,
+  jupiter: 26,
+  saturn: 11.1,
+  uranus: 10.7,
+  neptune: 14.1,
+  moon: 1.6,
+};
+
+// Action when button is clicked
+button.addEventListener('click', function () {
+  // If mass has 
+  if (mass.value !== '' && selectPlanets.value !== 'none') {
+    console.log(typeof selectPlanets.value)
+    document.querySelector(
+      '#show-input'
+    ).innerText = `Weight of a ${mass.value} kg object in ${selectPlanets.value.toUpperCase()} is`;
+    document.querySelector('#result-weight').innerText = `${parseInt(
+      mass.value * gravity[selectPlanets.value]
+    )} N`;
+  } else {
+    document.querySelector('#result-weight').innerText =
+      'Mass and Planet are required. Check your input!';
+  }
+});
