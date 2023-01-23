@@ -1,0 +1,19 @@
+{
+  "name": "day-24-mini-project-object-in-a-planet",
+  "version": "1.0.0",
+  "description": "Website to calculate weight of an object on a planet",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rediahmdsCode/Day-24-Mini-Project-Object-in-a-Planet.git"
+  },
+  "author": "Redi Ahmad",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rediahmdsCode/Day-24-Mini-Project-Object-in-a-Planet/issues"
+  },
+  "homepage": "https://github.com/rediahmdsCode/Day-24-Mini-Project-Object-in-a-Planet#readme"
+}
