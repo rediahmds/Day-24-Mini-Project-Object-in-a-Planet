@@ -56,12 +56,12 @@ const gravity = {
 
 // Action when button is clicked
 button.addEventListener('click', function () {
-  // If mass has 
+  // If mass has
   if (mass.value !== '' && selectPlanets.value !== 'none') {
-    console.log(typeof selectPlanets.value)
-    document.querySelector(
-      '#show-input'
-    ).innerText = `Weight of a ${mass.value} kg object in ${selectPlanets.value.toUpperCase()} is`;
+    console.log(typeof selectPlanets.value);
+    document.querySelector('#show-input').innerText = `Weight of a ${
+      mass.value
+    } kg object in ${selectPlanets.value.toUpperCase()} is`;
     document.querySelector('#result-weight').innerText = `${parseInt(
       mass.value * gravity[selectPlanets.value]
     )} N`;
@@ -70,3 +70,15 @@ button.addEventListener('click', function () {
       'Mass and Planet are required. Check your input!';
   }
 });
+
+/**
+ * style function is used to style an element property
+ * @param {string} elementIdentifier - Element name, id, or class
+ * @param {string} property - Property of an element
+ * @param {string} value - Value of the given property
+ */
+function style(elementIdentifier, property, value) {
+  document.querySelector(`${elementIdentifier}`).style[`${property}`] = value;
+}
+
+style('h1', 'text-align', 'center');
