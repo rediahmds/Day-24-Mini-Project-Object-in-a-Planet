@@ -1,3 +1,7 @@
-const inputObjectMass = document.querySelector('#object-mass');
-const resultText = document.querySelector('#result-text');
-resultText.innerText = inputObjectMass.value;
+document.body.innerHTML = `
+    <h1>Calculate Object Mass in a Planet</h1>
+
+    <!-- INPUT BLOCK -->
+    <div class="input-block">
+      
+    </div>`;
