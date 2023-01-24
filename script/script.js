@@ -92,3 +92,34 @@ function style(elementIdentifier, property, value) {
 
 // Center the h1
 style('h1', 'text-align', 'center');
+style('h1', 'font-size', '1.5rem');
+
+// MOBILE PHONE VIEWPORT
+const mobileViewport = window.matchMedia('(max-width: 540px)');
+
+function handleMobileChange(viewport) {
+  if (viewport.matches) {
+    console.log('MOBILE match!!');
+    document.body.style.backgroundColor = 'red';
+  } else {
+    handleTabletChange(viewport);
+  }
+}
+
+mobileViewport.addEventListener('resize', handleMobileChange);
+handleMobileChange(mobileViewport);
+
+// TABLET VIEWPORT
+const tabletViewport = window.matchMedia(
+  '(min-width: 540px) and (max-width: 768px)'
+);
+function handleTabletChange(viewport) {
+  if (viewport.matches) {
+    console.log('TABLET match');
+    document.body.style.backgroundColor = 'green';
+  } else {
+    handleMobileChange(viewport);
+  }
+}
+tabletViewport.addEventListener('resize', handleTabletChange);
+handleTabletChange(tabletViewport);
