@@ -110,11 +110,15 @@ function styleElements(elementIdentifier, property, value) {
 styleElement('h1', 'text-align', 'center');
 styleElement('h1', 'font-size', '1.5rem');
 
+// ROUND FORM INPUT
+styleElements('.input-items', 'border-radius', '90px')
+
 // MOBILE PHONE VIEWPORT
 const smallView = window.matchMedia('(max-width: 500px)');
 
 function handleMobileChange(viewport) {
   if (viewport.matches) {
+    styleElements('*', 'font-size', '1rem');
     // STYLE INPUT BLOCK
     styleElement('.input-block-container', 'margin', '1rem .6rem');
     styleElement('.input-block-container', 'display', 'flex');
