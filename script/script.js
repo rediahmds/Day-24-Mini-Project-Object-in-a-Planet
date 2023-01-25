@@ -76,7 +76,8 @@ button.addEventListener('click', function () {
     ).toFixed(2)} N`;
   } else {
     document.querySelector('#show-input').innerText = '';
-    document.querySelector('img').remove();
+    document.querySelector('img').src = '';
+    document.querySelector('img').alt = '';
     document.querySelector('#result-weight').innerText =
       'Mass and Planet are required. Check your input!';
   }
