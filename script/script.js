@@ -75,6 +75,8 @@ button.addEventListener('click', function () {
       mass.value * gravity[selectPlanets.value]
     ).toFixed(2)} N`;
   } else {
+    document.querySelector('#show-input').innerText = '';
+    document.querySelector('img').remove();
     document.querySelector('#result-weight').innerText =
       'Mass and Planet are required. Check your input!';
   }
