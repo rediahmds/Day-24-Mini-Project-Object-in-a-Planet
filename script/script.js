@@ -22,7 +22,7 @@ document.body.innerHTML = `
       </select>
 
       <!-- Button to Calculate -->
-      <button name="button" class="input-items">Calculate</button>
+      <button name="button" class="input-items" id="btn-calculate">Calculate</button>
 
     </div>
     <!-- END OF INPUT BLOCK -->
@@ -110,8 +110,9 @@ function styleElements(elementIdentifier, property, value) {
 styleElement('h1', 'text-align', 'center');
 styleElement('h1', 'font-size', '1.5rem');
 
-// ROUND FORM INPUT
 styleElements('.input-items', 'border-radius', '90px');
+styleElements('.input-items', 'border', '.01rem solid black');
+styleElement('#btn-calculate', 'border', 'none');
 
 // MOBILE PHONE VIEWPORT
 const smallView = window.matchMedia('(max-width: 500px)');
