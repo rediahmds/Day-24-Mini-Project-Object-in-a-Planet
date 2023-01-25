@@ -22,14 +22,14 @@ document.body.innerHTML = `
       </select>
 
       <!-- Button to Calculate -->
-      <button name="button">Calculate</button>
+      <button name="button" class="input-items">Calculate</button>
 
     </div>
     <!-- END OF INPUT BLOCK -->
     
     <!-- RESULT BLOCK -->
     <div class="result-block-container">
-    <img id="planet-img" src=""/>
+      <img id="planet-img" src=""/>
       <div class="result-items" id="result-text">
         <div id="show-input"></div>
         <div id="result-weight"></div>
@@ -81,45 +81,67 @@ button.addEventListener('click', function () {
 });
 
 /**
- * style function is used to style an element property
- * @param {string} elementIdentifier - Element name, id, or class.
+ * Style function is used to style an element property
+ * @param {string} elementIdentifier - Element name or id.
  * @param {string} property - Property of an element.
  * @param {string} value - Value of the given property.
  */
-function style(elementIdentifier, property, value) {
-  document.querySelector(`${elementIdentifier}`).style[`${property}`] = value;
+function styleElement(elementIdentifier, property, value) {
+  document.querySelector(elementIdentifier).style[property] = value;
+}
+
+/**
+ * Used to style tags.
+ * @param {string} elementIdentifier - Tag name or class name.
+ * @param {string} property - Property of the element.
+ * @param {string} value - Value of the element property.
+ */
+function styleElements(elementIdentifier, property, value) {
+  const elements = document.querySelectorAll(elementIdentifier);
+  elements.forEach(element => {
+    element.style[property] = value;
+  });
 }
 
 // Center the h1
-style('h1', 'text-align', 'center');
-style('h1', 'font-size', '1.5rem');
+styleElement('h1', 'text-align', 'center');
+styleElement('h1', 'font-size', '1.5rem');
 
 // MOBILE PHONE VIEWPORT
-const mobileViewport = window.matchMedia('(max-width: 540px)');
+const smallView = window.matchMedia('(max-width: 500px)');
 
 function handleMobileChange(viewport) {
   if (viewport.matches) {
-    console.log('MOBILE match!!');
-    document.body.style.backgroundColor = 'red';
-  } else {
-    handleTabletChange(viewport);
+    // STYLE INPUT BLOCK
+    styleElement('.input-block-container', 'margin', '1rem .6rem');
+    styleElement('.input-block-container', 'display', 'flex');
+    styleElement('.input-block-container', 'flex-direction', 'column');
+    styleElement('.input-block-container', 'gap', '20px');
+    styleElements('.input-items', 'padding', '.8rem 0rem');
+
+    // STYLE RESULT BLOCK
+    styleElement('.result-block-container', 'display', 'flex');
+    styleElement('.result-block-container', 'flex-direction', 'column');
+    styleElement('.result-block-container', 'align-items', 'center');
+    styleElement('.result-block-container', 'gap', '20px');
+    styleElement('#planet-img', 'width', '60vw');
   }
 }
 
-mobileViewport.addEventListener('resize', handleMobileChange);
-handleMobileChange(mobileViewport);
+smallView.addEventListener('change', handleMobileChange);
+handleMobileChange(smallView);
 
 // TABLET VIEWPORT
-const tabletViewport = window.matchMedia(
+const mediumView = window.matchMedia(
   '(min-width: 540px) and (max-width: 768px)'
 );
 function handleTabletChange(viewport) {
   if (viewport.matches) {
-    console.log('TABLET match');
-    document.body.style.backgroundColor = 'green';
-  } else {
-    handleMobileChange(viewport);
+    styleElement('.input-block-container', 'display', 'flex');
+    styleElement('.input-block-container', 'flex-direction', 'row');
+    styleElements('.input-block-container', 'gap', '20px');
   }
 }
-tabletViewport.addEventListener('resize', handleTabletChange);
-handleTabletChange(tabletViewport);
+
+mediumView.addEventListener('change', handleTabletChange);
+handleTabletChange(mediumView);
