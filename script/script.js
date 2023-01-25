@@ -5,7 +5,7 @@ document.body.innerHTML = `
     <!-- INPUT BLOCK -->
     <div class="input-block-container">
       <!-- Input Mass -->
-      <input type="text" id="mass" name="mass" class="input-items" required>
+      <input type="text" id="mass" name="mass" class="input-items" placeholder="Enter a number (kg)" required>
       
       <!-- Select Planet -->
       <select name="planets" id="select-planets" class="input-items">
@@ -111,7 +111,7 @@ styleElement('h1', 'text-align', 'center');
 styleElement('h1', 'font-size', '1.5rem');
 
 // ROUND FORM INPUT
-styleElements('.input-items', 'border-radius', '90px')
+styleElements('.input-items', 'border-radius', '90px');
 
 // MOBILE PHONE VIEWPORT
 const smallView = window.matchMedia('(max-width: 500px)');
@@ -125,6 +125,7 @@ function handleMobileChange(viewport) {
     styleElement('.input-block-container', 'flex-direction', 'column');
     styleElement('.input-block-container', 'gap', '20px');
     styleElements('.input-items', 'padding', '.8rem 0rem');
+    styleElements('.input-items', 'text-align', 'center');
 
     // STYLE RESULT BLOCK
     styleElement('.result-block-container', 'display', 'flex');
