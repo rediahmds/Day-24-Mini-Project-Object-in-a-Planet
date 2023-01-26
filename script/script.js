@@ -116,22 +116,33 @@ styleElement('h1', 'font-size', '1.5rem');
 // Style input-items class
 styleElements('.input-items', 'border-radius', '90px');
 styleElements('.input-items', 'border', '.01rem solid #002021');
+styleElements('.input-items', 'padding', '.8rem 3rem');
+styleElements('.input-items', 'text-align', 'center');
 
 // Style the button
 styleElement('#btn-calculate', 'border', 'none');
 styleElement('#btn-calculate', 'background-color', '#002021');
 styleElement('#btn-calculate', 'color', '#a8eff0');
+styleElement('#btn-calculate', 'align-self', 'flex-end');
 
 // Style input-container class
 styleElement('.input-block-container', 'background-color', '#ADE8F4');
 styleElement('.input-block-container', 'padding', '1.5rem');
 styleElement('.input-block-container', 'border-radius', '10px');
 styleElement('.input-block-container', 'margin', '1rem .6rem');
+styleElement('.input-block-container', 'display', 'flex');
+styleElement('.input-block-container', 'gap', '20px');
+styleElement('.input-block-container', 'justify-content', 'center');
 
 // Style result-container
 styleElement('.result-block-container', 'background-color', '#ADE8F4');
-styleElement('.result-block-container', 'padding', '1.5rem');
 styleElement('.result-block-container', 'border-radius', '10px');
+styleElement('.result-block-container', 'padding', '1.5rem');
+styleElement('.result-block-container', 'display', 'flex');
+styleElement('.result-block-container', 'justify-content', 'center');
+styleElement('.result-block-container', 'align-items', 'center');
+styleElement('.result-block-container', 'gap', '1.6rem');
+styleElement('#planet-img', 'width', '30vw');
 
 // TABLET VIEWPORT
 const mediumView = window.matchMedia(
@@ -155,7 +166,7 @@ function handleMobileChange(viewport) {
   if (viewport.matches) {
     // Set font size in mobile phone only
     styleElements('*', 'font-size', '1rem');
-    
+
     // STYLE INPUT BLOCK
     styleElement('.input-block-container', 'display', 'flex');
     styleElement('.input-block-container', 'flex-direction', 'column');
