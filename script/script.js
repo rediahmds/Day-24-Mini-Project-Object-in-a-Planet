@@ -106,35 +106,56 @@ function styleElements(elementIdentifier, property, value) {
   });
 }
 
+// Style body
 styleElement('body', 'background-color', '#CAF0F8');
 
-// Center the h1
+// Style the heading
 styleElement('h1', 'text-align', 'center');
 styleElement('h1', 'font-size', '1.5rem');
 
+// Style input-items class
 styleElements('.input-items', 'border-radius', '90px');
 styleElements('.input-items', 'border', '.01rem solid #002021');
 
+// Style the button
 styleElement('#btn-calculate', 'border', 'none');
 styleElement('#btn-calculate', 'background-color', '#002021');
 styleElement('#btn-calculate', 'color', '#a8eff0');
 
+// Style input-container class
 styleElement('.input-block-container', 'background-color', '#ADE8F4');
 styleElement('.input-block-container', 'padding', '1.5rem');
 styleElement('.input-block-container', 'border-radius', '10px');
 styleElement('.input-block-container', 'margin', '1rem .6rem');
 
+// Style result-container
 styleElement('.result-block-container', 'background-color', '#ADE8F4');
 styleElement('.result-block-container', 'padding', '1.5rem');
 styleElement('.result-block-container', 'border-radius', '10px');
 
+// TABLET VIEWPORT
+const mediumView = window.matchMedia(
+  '(min-width: 540px) and (max-width: 768px)'
+);
+function handleTabletChange(viewport) {
+  if (viewport.matches) {
+    styleElement('.input-block-container', 'display', 'flex');
+    styleElement('.input-block-container', 'flex-direction', 'row');
+    styleElements('.input-block-container', 'gap', '20px');
+  }
+}
+
+mediumView.addEventListener('change', handleTabletChange);
+handleTabletChange(mediumView);
 
 // MOBILE PHONE VIEWPORT
 const smallView = window.matchMedia('(max-width: 500px)');
 
 function handleMobileChange(viewport) {
   if (viewport.matches) {
+    // Set font size in mobile phone only
     styleElements('*', 'font-size', '1rem');
+    
     // STYLE INPUT BLOCK
     styleElement('.input-block-container', 'display', 'flex');
     styleElement('.input-block-container', 'flex-direction', 'column');
@@ -153,18 +174,3 @@ function handleMobileChange(viewport) {
 
 smallView.addEventListener('change', handleMobileChange);
 handleMobileChange(smallView);
-
-// TABLET VIEWPORT
-const mediumView = window.matchMedia(
-  '(min-width: 540px) and (max-width: 768px)'
-);
-function handleTabletChange(viewport) {
-  if (viewport.matches) {
-    styleElement('.input-block-container', 'display', 'flex');
-    styleElement('.input-block-container', 'flex-direction', 'row');
-    styleElements('.input-block-container', 'gap', '20px');
-  }
-}
-
-mediumView.addEventListener('change', handleTabletChange);
-handleTabletChange(mediumView);
