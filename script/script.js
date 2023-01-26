@@ -29,7 +29,7 @@ document.body.innerHTML = `
     
     <!-- RESULT BLOCK -->
     <div class="result-block-container">
-      <img id="planet-img" src=""/>
+      <img id="planet-img" src="" class="result-items"/>
       <div class="result-items" id="result-text">
         <div id="show-input"></div>
         <div id="result-weight"></div>
@@ -106,13 +106,28 @@ function styleElements(elementIdentifier, property, value) {
   });
 }
 
+styleElement('body', 'background-color', '#CAF0F8');
+
 // Center the h1
 styleElement('h1', 'text-align', 'center');
 styleElement('h1', 'font-size', '1.5rem');
 
 styleElements('.input-items', 'border-radius', '90px');
-styleElements('.input-items', 'border', '.01rem solid black');
+styleElements('.input-items', 'border', '.01rem solid #002021');
+
 styleElement('#btn-calculate', 'border', 'none');
+styleElement('#btn-calculate', 'background-color', '#002021');
+styleElement('#btn-calculate', 'color', '#a8eff0');
+
+styleElement('.input-block-container', 'background-color', '#ADE8F4');
+styleElement('.input-block-container', 'padding', '1.5rem');
+styleElement('.input-block-container', 'border-radius', '10px');
+styleElement('.input-block-container', 'margin', '1rem .6rem');
+
+styleElement('.result-block-container', 'background-color', '#ADE8F4');
+styleElement('.result-block-container', 'padding', '1.5rem');
+styleElement('.result-block-container', 'border-radius', '10px');
+
 
 // MOBILE PHONE VIEWPORT
 const smallView = window.matchMedia('(max-width: 500px)');
@@ -121,7 +136,6 @@ function handleMobileChange(viewport) {
   if (viewport.matches) {
     styleElements('*', 'font-size', '1rem');
     // STYLE INPUT BLOCK
-    styleElement('.input-block-container', 'margin', '1rem .6rem');
     styleElement('.input-block-container', 'display', 'flex');
     styleElement('.input-block-container', 'flex-direction', 'column');
     styleElement('.input-block-container', 'gap', '20px');
